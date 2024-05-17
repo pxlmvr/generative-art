@@ -6,9 +6,18 @@ const settings = {
 }
 
 const sketch = () => {
+  const PALETTE = [
+    '#0442BF',
+    '#049DD9',
+    '#97BF04',
+    '#F2CB05',
+    '#F21905',
+    '#BE18D6',
+  ]
+
   const createGrid = () => {
     const points = []
-    const count = 5
+    const count = 40
 
     for (let x = 0; x < count; x++) {
       for (let y = 0; y < count; y++) {
@@ -23,7 +32,7 @@ const sketch = () => {
     return points
   }
 
-  const points = createGrid()
+  const points = createGrid().filter(() => Math.random() > 0.5)
   const margin = 400
 
   return ({ context, width, height }) => {
@@ -36,9 +45,9 @@ const sketch = () => {
       const y = lerp(margin, height - margin, v)
 
       context.beginPath()
-      context.arc(x, y, 20, 0, Math.PI * 2, false)
-      context.strokeStyle = '#000'
-      context.lineWidth = 20
+      context.arc(x, y, 4, 0, Math.PI * 2, false)
+      context.strokeStyle = PALETTE[Math.floor(Math.random() * PALETTE.length)]
+      context.lineWidth = 25
       context.stroke()
     })
   }

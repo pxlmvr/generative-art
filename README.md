@@ -10,4 +10,4 @@ Clone the repo, cd in the folder and run `npm install`.
 
 Install `canvas-sketck-cli`: `npm install canvas-sketch-cli --global`.
 
-To preview any artwork run `canvas-sketch [FILENAME]`.
+To preview any artwork run `canvas-sketch [PATH_TO_FILE]`.
