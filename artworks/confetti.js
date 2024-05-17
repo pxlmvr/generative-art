@@ -21,10 +21,12 @@ const sketch = () => {
         const u = count <= 1 ? 0.5 : x / (count - 1)
         const v = count <= 1 ? 0.5 : y / (count - 1)
 
+        const radius = Math.abs(random.noise2D(u, v)) * 0.02
+
         points.push({
           color: random.pick(palette),
           position: [u, v],
-          radius: Math.abs(0.01 + random.gaussian() * 0.01),
+          radius,
         })
       }
     }
